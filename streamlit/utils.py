@@ -144,7 +144,7 @@ def generate_quiz(pdf_name, answers):
     images = convert_from_path(pdf_name)
 
     for image in images:
-        print("here")
+        # print("here")
         image = np.array(image)
         h, w, _ = image.shape
 
@@ -157,7 +157,7 @@ def generate_quiz(pdf_name, answers):
         )
         ocr_df = pd.DataFrame(d)
         for answer in answers.keys():
-            print(answer)
+            # print(answer)
             try:
                 all_sims = word_embedding.most_similar(answer, topn=50)
             except Exception as e:

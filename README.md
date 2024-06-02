@@ -1,5 +1,5 @@
 # Pdf2Quiz
-- [Streamlit](streamlit)
+- [Streamlit](streamlit) (This fork only focus on this)
 - [FastAPI Local](fastapi-local)
 - [FastAPI Cloud](fastapi-cloud)
 

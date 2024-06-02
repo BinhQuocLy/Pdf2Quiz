@@ -3,11 +3,12 @@ import os
 import random
 
 import streamlit as st
-from utils import extract_keyword, extract_text, generate_quiz
+# from utils import extract_keyword, extract_text, generate_quiz
+import utils
 
-st.header("Did you read the paper?".title())
+st.header("Did you read the document?".title())
 
-NUM_OF_QUESTION = 10
+NUM_OF_QUESTION = 50
 if "prepared" not in st.session_state:
     st.session_state["prepared"] = False
 if "choice" not in st.session_state:
@@ -46,11 +47,11 @@ if not st.session_state["prepared"]:
             f.write(uploaded_file.getbuffer())
 
         with st.spinner("Extracting text from pdf..."):
-            text = extract_text(file_path)
+            text = utils.extract_text(file_path)
         with st.spinner("Extracting keywords from text..."):
-            keywords = extract_keyword(text)
+            keywords = utils.extract_keyword(text)
         with st.spinner("Generating quiz ...."):
-            generate_quiz(file_path, keywords)
+            utils.generate_quiz(file_path, keywords)
         with open("quiz_data.json") as f:
             data = json.load(f)
 

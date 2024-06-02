@@ -87,6 +87,15 @@ if len(st.session_state["choice"]) < NUM_OF_QUESTION:
                     opt_idx,
                 ),
             )
+        if len(st.session_state["choice"]) > index:
+            c1, c2 = st.columns(2)
+            with c1:
+                if st.session_state["choice"][index]:
+                    st.success("True")
+                else:
+                    st.error("False")
+            with c2:
+                st.image(question["original_image"])
 else:
     punc = "." * (NUM_OF_QUESTION - sum(st.session_state["choice"]))
     st.subheader(
